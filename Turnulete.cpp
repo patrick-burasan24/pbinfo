@@ -1,6 +1,8 @@
+
+
 #include <iostream>
 #include <fstream>
-#include <vector>
+#include <map>
 #define MOD 1e9 + 7
 #define INF 1e9
 typedef long long ll;
@@ -10,73 +12,28 @@ using namespace std;
 
 // ifstream in(".in");
 // ofstream out(".out");
-int n, m, p, q;
-vector<ll> a, b;
 
-void load() {
-    cin >> n;
-    a.resize(n);
-    for (int i = 0; i < n; ++i) {
-        cin >> a[i];
-    }
-    cin >> m;
-    b.resize(m);
-    for (int i = 0; i < m; ++i) {
-        cin >> b[i];
-    }
-}
-
-int bin_search1(ll x) {
-
-    ll lo, hi, mid;
-    int p = 0;
-    lo = 0;
-    hi = n - 1;
-    while (lo <= hi) {
-        mid = lo + (hi - lo) / 2;
-        if (x == a[mid]) {
-            p = mid;
-            lo = mid + 1;
-        } else if (x > a[mid]) {
-            lo = mid + 1;
-        } else {
-            hi = mid - 1;
-        }
-    }
-
-    return p;
-}
-
-int bin_search2(ll x) {
-    ll lo, hi, mid;
-    int q = 1;
-    lo = 0;
-    hi = n - 1;
-    while (lo <= hi) {
-        mid = lo + (hi - lo) / 2;
-        if (x == a[mid]) {
-            q = mid;
-            hi = mid - 1;
-        } else if (x > a[mid]) {
-            lo = mid + 1;
-        } else {
-            hi = mid - 1;
-        }
-    }
-
-    return q;
-}
+map<int, int> M;
 
 int main() {
     ios_base::sync_with_stdio(false);
     cin.tie(NULL); cout.tie(NULL);
-    load();
-    for (int i = 0; i < m; ++i) {
-        p = bin_search1(b[i]);
-        q = bin_search2(b[i]);
-        cout << 1LL * b[i] * (p - q + 1) << ' ';
+    int n, m, x;
+    cin >> n;
+    for (int i = 0; i < n; ++i) {
+        cin >> x;
+        M[x]++;
     }
-    cout << '\n';       
+    cin >> m;
+    for (int i = 0; i < m; ++i) {
+        cin >> x;
+        if (M.find(x) == M.end()) {
+            cout << "0 ";
+        } else {
+            cout << 1LL * x * M[x] << ' ';
+        }
+    }
+    cout << '\n';
     return 0;
 }
 
