@@ -44,8 +44,8 @@ void generare4(int n, int p2) {
     }
 }
 
-/* Nota: cazurile particulare 2^0 si 2^1 se afiseaza in afara */
-/* Dat fiind ca nu exista se poate realiza strategia de mai sus*/
+/* Nota: cazurile particulare 2^0 si 2^1 se afiseaza in afara functiei */
+/* Dat fiind ca se poate realiza strategia de mai sus*/
 
 void solve() {
     int n; cin >> n;
