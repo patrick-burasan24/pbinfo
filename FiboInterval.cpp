@@ -36,7 +36,7 @@ int main() {
         
         // Rezultatul se bazeaza pe observatia ca suma primilor k termeni fibonacci
         // este egala cu termenul fibonacci de pe pozitia k + 2 minus 1
-        // Formal S(k) = F(k + 2) + 1;
+        // Formal S(k) = F(k + 2) - 1;
         // Extinzand observatia la intervalul nostru definit de capetele l, r
         // S(l, r) = S(r) - S(l - 1) (sume partiale)
         // Inlocuind relatia anterioare (Formula lui Binet)
