@@ -88,7 +88,8 @@ inline void MultHuge(Huge A, Huge B, Huge C) {
 
 // Pentru q^(n-1) vom folosi exponentierea in timp logaritmic
 inline void rise(Huge base, int exp, Huge r) {
-    r[0] = 1; r[1] = 1;
+    r[0] = 1;
+    r[1] = 1;
     Huge aux;
     while (exp) {
         if (exp & 1) {
