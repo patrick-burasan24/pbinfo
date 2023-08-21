@@ -22,8 +22,8 @@ int main() {
         adj[u][v] = adj[v][u] = 1;
     }
     // Folosindu-ne de o structura de tip coada vom introduce initial toate nodurile
-    // cu un grad <= k, apoi pana coada devine vida vom parcurge matricea de adiacenta
-    // si vom elimina muchia dintre nodul cu gradul <= k si celelalte varfuri.
+    // cu un grad < k, apoi pana coada devine vida vom parcurge matricea de adiacenta
+    // si vom elimina muchia dintre nodul cu gradul < k si celelalte varfuri.
     // Daca friends[otherNode] devine < k il adaugam in coada.
     st = 1;
     dr = 0;
