@@ -10,6 +10,7 @@ class Tablou {
     public:
         int *t;
         int n;
+
         Tablou(int dim, int a, int b, int c, int d) {
             n = dim;
             t = new int[n];
@@ -31,23 +32,17 @@ class Tablou {
         }
 
         int Cauta(int val) {
-            int st = 0, dr = n - 1, mid, p = -1;
-            while (st <= dr) {
-                mid = st + (dr - st) / 2;
-                if (t[mid] == val) {
-                    p = mid;
-                    dr = mid - 1;
-                } else if (t[mid] < val)
-                    st = mid + 1;
-                else
-                    dr = mid - 1;
-            }
+            int p = -1;
+            for (int i = 0; i < n; i++)
+                if (t[i] == val) {
+                    p = i;
+                    break;
+                }
             return p;
         }
 };
 
 int main() {
-    
     Tablou ob(10, 2, 7, 7, 9);
     for (int i = 0; i < 10; i++)
         fout << ob.t[i] << ' ';
