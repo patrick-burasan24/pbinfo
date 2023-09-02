@@ -1,0 +1,34 @@
+#include <fstream>
+#include <deque>
+
+using namespace std;
+
+ifstream cin("ksum2.in");
+ofstream cout("ksum2.out");
+
+int const NMAX = 1e5 + 5;
+int n, k, w, s[NMAX];
+deque<int> q;
+
+int main() {
+    cin >> n >> k >> w;
+    int i, maxim;
+    for (i = 1; i <= n; i++) {
+        cin >> s[i];
+        s[i] += s[i - 1];
+    }
+    maxim = s[k];
+    q.push_back(0);
+    for (i = k + 1; i <= n; i++) {
+        while (!q.empty() && s[q.back()] >= s[i - k])
+            q.pop_back();
+        q.push_back(i - k);
+        if (q.front() == i - w - 1)
+            q.pop_front();
+        maxim = max(maxim, s[i] - s[q.front()]);
+    }
+    cout << maxim << '\n';
+    cin.close();
+    cout.close();
+    return 0;
+}
